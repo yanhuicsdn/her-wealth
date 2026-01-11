@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 她财 (Her-Wealth) - 一键部署</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .repo-link {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .repo-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .deploy-buttons {
+            display: grid;
+            gap: 20px;
+        }
+
+        .deploy-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .deploy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .vercel {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+
+        .netlify {
+            background: linear-gradient(135deg, #00C7B7 0%, #00A8A8 100%);
+        }
+
+        .railway {
+            background: linear-gradient(135deg, #6A4C93 0%, #8B5A9F 100%);
+        }
+
+        .recommendation {
+            background: #FFF3CD;
+            border: 2px solid #FFC107;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .recommendation strong {
+            color: #856404;
+        }
+
+        .features {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #f5f5f5;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .steps {
+            background: #E7F3FF;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .steps h3 {
+            margin-bottom: 15px;
+            color: #0056D2;
+        }
+
+        .steps ol {
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .steps li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌸 她财 (Her-Wealth)</h1>
+        <p class="subtitle">专为女性设计的股票交易应用</p>
+
+        <div class="recommendation">
+            <strong>⭐ 推荐：使用 Vercel 部署（最快、最简单）</strong>
+        </div>
+
+        <div class="repo-link">
+            📦 GitHub 仓库：<br>
+            <a href="https://github.com/yanhuicsdn/her-wealth" target="_blank">
+                https://github.com/yanhuicsdn/her-wealth
+            </a>
+        </div>
+
+        <div class="deploy-buttons">
+            <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyanhuicsdn%2Fher-wealth" target="_blank" class="deploy-btn vercel">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                Deploy to Vercel ⭐
+            </a>
+
+            <a href="https://app.netlify.com/start" target="_blank" class="deploy-btn netlify">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                Deploy to Netlify
+            </a>
+
+            <a href="https://railway.app/new?template=https://github.com/yanhuicsdn/her-wealth" target="_blank" class="deploy-btn railway">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+                </svg>
+                Deploy to Railway
+            </a>
+        </div>
+
+        <div class="steps">
+            <h3>📋 部署步骤（以 Vercel 为例）：</h3>
+            <ol>
+                <li>点击上方 "Deploy to Vercel" 按钮</li>
+                <li>使用 GitHub 账号登录 Vercel</li>
+                <li>确认仓库 <code>yanhuicsdn/her-wealth</code></li>
+                <li>点击 "Deploy" 按钮</li>
+                <li>等待 2-3 分钟，获得免费网址！</li>
+            </ol>
+        </div>
+
+        <div class="features">
+            <h2>✨ 主要功能</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div>股票行情</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <div>用户认证</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <div>自选股</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛍️</div>
+                    <div>股票交易</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💼</div>
+                    <div>持仓管理</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💡</div>
+                    <div>AI建议</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
