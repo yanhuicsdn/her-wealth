@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💕 她财 - 女性投资Web App
 
-## Getting Started
+## 项目简介
 
-First, run the development server:
+**她财**是一个面向女性用户的投资教育平台,核心定位是"帮你买对,而非教你投资"。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 核心价值
+- ✅ **30秒生成投资方案** - 输入年龄、资产、目标,立即获得个性化投资组合
+- ✅ **AI精选50只基金** - 不是7000只,而是AI筛选的最优选择
+- ✅ **女性视角解读** - 用包包、旅行、买房讲投资,而非专业术语
+- ✅ **真实案例参考** - 跟你一样的女性买了什么,赚了多少
+
+### 技术栈
+
+- **前端框架**: Next.js 14 (App Router)
+- **UI组件库**: shadcn/ui + Tailwind CSS
+- **语言**: TypeScript
+- **AI集成**: OpenAI API (GPT-4)
+- **数据库**: Supabase (PostgreSQL)
+- **图表**: Recharts
+
+### 页面结构
+
+```
+/                    # 首页 - 产品介绍和CTA
+/assessment          # 测评问卷 - 5个问题生成方案
+/plan                # 方案详情 - AI生成的投资组合
+(后续开发)
+/products            # 产品详情 - 基金/股票故事化解读
+/cases               # 成功案例 - 真实用户故事
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 本地开发
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 安装依赖
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 启动开发服务器
+npm run dev
 
-## Learn More
+# 访问应用
+# 打开浏览器访问 http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 环境变量配置
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+创建 `.env.local` 文件:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# OpenAI API
+OPENAI_API_KEY=your_openai_api_key
 
-## Deploy on Vercel
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 核心文件说明
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+├── page.tsx              # 首页
+├── assessment/
+│   └── page.tsx         # 测评问卷页
+├── plan/
+│   └── page.tsx         # 方案详情页
+├── api/
+│   └── plan/
+│       └── generate/
+│           └── route.ts # AI方案生成API
+components/
+└── ui/                  # shadcn/ui组件
+    ├── button.tsx
+    ├── card.tsx
+    ├── input.tsx
+    ├── label.tsx
+    └── select.tsx
+```
+
+### 当前进度
+
+#### ✅ 已完成
+- [x] Next.js项目初始化
+- [x] shadcn/ui组件库配置
+- [x] 首页设计 - 产品介绍、用户评价、成功案例
+- [x] 测评问卷 - 5步问卷,进度条显示
+- [x] 方案详情页 - 展示AI生成的投资组合
+- [x] **OpenAI API集成** - 真实的AI方案生成功能
+  - 创建API路由 `/api/plan/generate`
+  - 集成GPT-4生成个性化投资组合
+  - 女性友好的提示词设计
+  - 智能降级方案(AI失败时使用默认配置)
+- [x] **产品详情页** - 基金/股票的女性叙事解读
+  - 创建产品类型定义 (`types/product.ts`)
+  - 创建模拟产品数据 (`data/products.ts`)
+  - 创建动态路由产品详情页 (`app/products/[id]/page.tsx`)
+  - 实现女性友好的故事化呈现
+  - 添加真实用户案例和推荐逻辑
+  - 在方案页面添加"查看详情"链接
+- [x] 开发服务器启动 - http://localhost:3000
+
+#### 🚧 下一步
+- [ ] 配置Supabase - 数据库设计和连接
+- [ ] 实现用户认证 - 手机号/微信登录
+- [ ] 对接券商API - 开户转化功能
+
+### 设计理念
+
+#### 从女性用户视角出发
+
+**痛点**:
+- "我不知道该买什么"
+- "看不懂专业术语(PE、ROE...)"
+- "没有时间研究,只想快速得到答案"
+
+**解决方案**:
+- **简单直接** - 30秒填空题,立即获得方案
+- **可信赖** - 透明的推荐逻辑,真实案例参考
+- **省时间** - 不需要每天盯盘,长期持有策略
+
+#### UI/UX原则
+1. **情感化设计** - 温暖的粉色+青绿色彩
+2. **极简交互** - 填空题而非聊天,减少操作步骤
+3. **故事化呈现** - 用生活场景讲投资,而非数据轰炸
+4. **真实案例** - 小美、阿玲的真实故事,建立信任
+
+### 商业模式
+
+**B2B2C导流平台**:
+- 券商CPA: 100元/有效开户
+- 基金销售佣金: 申购费的50%
+- 增值服务: 会员制、1对1咨询(后期)
+
+### 成功指标
+
+- **北极星指标**: 有效开户转化率 = 完成开户+入金 / 生成方案
+- **核心指标**:
+  - 完成测评率: >60%
+  - 方案生成率: >50%
+  - 开户转化率: >5%
+  - 月收入: 10万(月活1万)
+
+---
+
+**💕 让每个女性都能掌握投资能力**
